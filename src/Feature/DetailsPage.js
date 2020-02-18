@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageListFirst, ImageListSecond, ImageListThird, ImageListForth, Details, DetailInfo } from '../Components';
+import { Header, Details, DetailInfo } from '../Components';
 import data from '../api.json'
 import logo from '../logo.svg';
 
@@ -24,6 +24,7 @@ class LandingPage extends Component {
     const {search} = this.state;
     return (
         <div class="container">
+            <Header title="Resorts" subtitle="Treat yourself! your dream resort stayis just few clicks aways" />
             <div class="row">
                 <h3 style={{fontWeight: 'bold', color: 'blue'}}>
                     Hotel Alborada ocean Club

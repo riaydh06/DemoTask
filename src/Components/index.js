@@ -4,6 +4,7 @@ import ImageListThird from './ImageListThird';
 import ImageListForth from './ImageListForth';
 import Details from './Details';
 import DetailInfo from './DetailInfo';
+import Header from './Header';
 
 export {
     ImageListFirst,
@@ -11,5 +12,6 @@ export {
     ImageListThird,
     ImageListForth,
     Details,
-    DetailInfo
+    DetailInfo,
+    Header
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageListFirst, ImageListSecond, ImageListThird, ImageListForth } from '../Components';
+import { Header, ImageListFirst, ImageListSecond, ImageListThird, ImageListForth } from '../Components';
 import data from '../api.json'
 
 const styles = {
@@ -23,6 +23,7 @@ class LandingPage extends Component {
     const {search} = this.state;
     return (
         <div class="container">
+         <Header title="Resorts" subtitle="Treat yourself! your dream resort stayis just few clicks aways" />
             <div class="row">
                 <h3>
                     Just Book
