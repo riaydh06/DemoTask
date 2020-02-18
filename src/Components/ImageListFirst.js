@@ -18,9 +18,9 @@ const ImageListFirst = ({
             <div class="row">
                 {
                     items.map(item=>(
-                        <div class="col-sm">
+                        <div class="col"  style={{width: '350px'}}>
                             <div class="row">
-                                <img src={item.image} style={{height: '200px'}} class="rounded" alt="logo" />
+                                <img src={item.image} style={{height: '240px'}} class="rounded" alt="logo" />
                             </div>
                             <div class="row">
                                 <StarRatings
@@ -31,19 +31,26 @@ const ImageListFirst = ({
                                     starSpacing="2px"
                                 />
                             </div>
-                            <div class="row" style={{textAlign: 'left'}}>
+                            <div class="row" style={{textAlign: 'left', width: '350px'}}>
                                 <p>
                                     {item.description}
                                 </p>
                             </div>
                             <div class="row" style={{textAlign: 'left'}}>
-                                <div class="col">
-                                    <img src={logo} style={{height: '50px'}} alt="logo" />
+                                <div class="col-3">
+                                    <img src={item.avatar} style={{height: '50px'}} alt="logo" />
                                 </div>
-                                <div class="col">
-                                    <p>
-                                        Edit and save to reload.
-                                    </p>
+                                <div class="col-9">
+                                    <div class="row" style={{textAlign: 'left'}}>
+                                        <p style={{fontWeight: 'bold'}}>
+                                        {item.username}
+                                        </p>
+                                    </div>
+                                    <div class="row" style={{textAlign: 'left'}}>
+                                        <p>
+                                        {item.comments}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

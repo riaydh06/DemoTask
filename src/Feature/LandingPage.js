@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageListFirst } from '../Components';
+import { ImageListFirst, ImageListSecond, ImageListThird, ImageListForth } from '../Components';
 import data from '../api.json'
 
 const styles = {
@@ -24,8 +24,41 @@ class LandingPage extends Component {
     return (
         <div class="container">
             <div class="row">
+                <h3>
+                    Just Book
+                </h3>
+                <p>
+
+                </p>
+            </div>
+            <div class="row" style={{marginBottom: '50px'}}>
                 <ImageListFirst
                     items={data.data1}
+                />
+            </div>
+            <div class="row">
+                <h3>
+                Just Book
+                </h3>
+            </div>
+             <div class="row" style={{marginBottom: '50px'}}>
+                <ImageListSecond
+                    items={data.data2}
+                />
+            </div>
+            <div class="row">
+                <h3>
+                    Places in London
+                </h3>
+            </div>
+            <div class="row" style={{marginBottom: '50px'}}>
+                <ImageListThird
+                    items={data.data2}
+                />
+            </div>
+            <div class="row" style={{marginBottom: '50px'}}>
+                <ImageListForth
+                    items={data.data2}
                 />
             </div>
         </div>
