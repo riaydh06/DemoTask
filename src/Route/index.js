@@ -1,4 +1,5 @@
 import LandingPage from '../Feature/LandingPage';
+import DetailsPage from '../Feature/DetailsPage';
 
 const routes = [
     {
@@ -7,9 +8,15 @@ const routes = [
         component: LandingPage,
         exact: true
     },
+    {
+        name:'DetailsPage',
+        path:'/Details/:id',
+        component: DetailsPage,
+        exact: true
+    },
     // {
     //     name:'details',
-    //     path:'/details/:id/:price',
+    //     path:'/details/:id/',
     //     component: Details,
     //     exact: true
     // }
