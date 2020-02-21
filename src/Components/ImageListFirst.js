@@ -4,66 +4,49 @@ import StarRatings from 'react-star-ratings';
 import {
     Link
   } from "react-router-dom";
+import { flex, column, mr10, mb5 } from '../Styles/CommonStyle';
 
 const styles = {
-    wrapperStyle: {
+    linkStyle: {
+        textDecoration: 'none', color: 'black'
+    },
+    imageStyle: {
+        height: '240px'
     }
 }
 
 const ImageListFirst = ({
-    items,
-    image,
-    description,
-    rating,
+    items
 }) =>{
     return (
-        <div class="container">
-            <div class="row">
-                {
-                    items.map((item, index)=>(
-                        <div class="col"  style={{width: '350px'}}>
-                            <Link to="/Details/1" style={{ textDecoration: 'none', color: 'black' }}>
-                                <div class="row">
-                                    <img src={item.image} style={{height: '240px'}} class="rounded" alt="logo" />
-                                </div>
-                                <div class="row">
-                                    <StarRatings
-                                        starRatedColor="red"
-                                        starEmptyColor="white"
-                                        rating={item.rating}
-                                        starDimension="16px"
-                                        starSpacing="2px"
-                                    />
-                                </div>
-                                <div class="row" style={{textAlign: 'left', width: '350px'}}>
-                                    <p>
-                                        {item.description}
-                                    </p>
-                                </div>
-                                <div class="row" style={{textAlign: 'left'}}>
-                                    <div class="col-3">
-                                        <img src={item.avatar} style={{height: '50px'}} alt="logo" />
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="row" style={{textAlign: 'left'}}>
-                                            <p style={{fontWeight: 'bold'}}>
-                                            {item.username}
-                                            </p>
-                                        </div>
-                                        <div class="row" style={{textAlign: 'left'}}>
-                                            <p>
-                                            {item.comments}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
+        items.map((item, index)=>(
+            <div style={{...flex, margin: '10px'}} key={index}>
+                <Link to="/Details/1" style={styles.linkStyle}>
+                    <div>
+                        <img src={item.image} style={styles.imageStyle} class="rounded" alt="logo" />
+                    </div>
+                    <StarRatings
+                        starRatedColor="red"
+                        starEmptyColor="white"
+                        rating={item.rating}
+                        starDimension="16px"
+                        starSpacing="2px"
+                    />
+                    <div style={{width: '350px'}}>
+                        <p>{item.description}</p>
+                    </div>
+                    <div style={flex}>
+                        <div style={{...flex, ...mr10}}>
+                            <img src={item.avatar} style={{height: '50px'}} alt="logo" />
                         </div>
-                        
-                    ))
-                }
-            </div>
-        </div>
+                        <div style={{...flex, ...column}}>
+                            <p style={{fontWeight: 'bold',  ...mb5}}>{item.username}</p>
+                            <p>{item.comments} </p>
+                        </div>
+                    </div>
+                </Link>
+            </div>   
+        ))        
     )
 }
 

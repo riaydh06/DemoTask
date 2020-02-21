@@ -1,54 +1,38 @@
 import React from 'react';
-import logo from '../logo.svg';
 import StarRatings from 'react-star-ratings';
-import {
-    Link
-  } from "react-router-dom";
+import {Link} from "react-router-dom";
+import { flex, column, mb0 } from '../Styles/CommonStyle';
 
 const styles = {
-    wrapperStyle: {
+    linkStyle: {
+        textDecoration: 'none', color: 'black'
     }
 }
 
 const ImageListSecond = ({
-    items,
-    image,
-    description,
-    rating,
+    items
 }) =>{
     return (
-        <div class="container">
-            <div class="row">
-                {
-                    items.map((item, index)=>(
-                        <div class="col" style={{width: 150}}>
-                         <Link to="/Details/1" style={{ textDecoration: 'none', color: 'black' }}>
-                            <div class="row">
-                                <img src={item.image} style={{height: '240px', width: 150}} class="rounded" alt="logo" />
-                            </div>
-                            <div class="row" style={{textAlign: 'left', width: 150}}>
-                                <p>
-                                   `${item.price} ${item.title}`
-                                </p>
-                            </div>
-                            <div class="row">
-                                <StarRatings
-                                    starRatedColor="red"
-                                    starEmptyColor="white"
-                                    rating={item.rating}
-                                    starDimension="16px"
-                                    starSpacing="2px"
-                                />
-                                <p>
-                                44 reviews
-                                </p>
-                            </div>
-                            </Link>
-                        </div>
-                    ))
-                }
+        items.map((item, index)=>(
+            <div style={{...flex, ...column, margin: '5px'}} key={index}>
+                <Link to="/Details/1" style={styles.linkStyle}>
+                    <img src={item.image} style={{height: '240px', width: 160}} class="rounded" alt="logo" />
+                    <div style={{width: 160}}>
+                        <p>{`${item.price} ${item.title}`}</p>
+                    </div>
+                    <div style={{...flex, alignItems: 'center'}}>
+                        <StarRatings
+                            starRatedColor="red"
+                            starEmptyColor="white"
+                            rating={item.rating}
+                            starDimension="16px"
+                            starSpacing="2px"
+                        />
+                        <p style={mb0}>44 reviews</p>
+                    </div>
+                </Link>
             </div>
-        </div>
+        ))      
     )
 }
 

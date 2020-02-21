@@ -32,7 +32,7 @@
             "price": "£200",
             "type": "single",
             "comments": "We loved your house",
-            "avatar": "https://cdn.icon-icons.com/icons2/1371/PNG/512/robot02_90810.png",
+            "avatar": "https://justice.org.au/wp-content/uploads/2017/08/avatar-icon.png",
             "username": "Julie",
             "country": "Uk"
         }
@@ -97,6 +97,18 @@
         "avatar": "https://justice.org.au/wp-content/uploads/2017/08/avatar-icon.png",
         "username": "Marleen",
         "country": "Germany"
+    },
+    {
+        "image": "https://a0.muscache.com/4ea/air/v2/pictures/7fbb6427-c0f2-4336-b491-b21d2c866c39.jpg",
+        "rating": 2,
+        "title": "Private Room- 1Double & 1Single Bed-Central London",
+        "description": "A Private Room in Shared flat with a friendly professional female and her two lovable pugs(dogs).I look forward to hosting you in my home and welcoming you to London",
+        "price": "£200",
+        "type": "single",
+        "comments": "We loved your house",
+        "avatar": "https://cdn.icon-icons.com/icons2/1371/PNG/512/robot02_90810.png",
+        "username": "Julie",
+        "country": "Uk"
     }
 ]
 }

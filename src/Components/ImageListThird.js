@@ -4,39 +4,30 @@ import StarRatings from 'react-star-ratings';
 import {
     Link
   } from "react-router-dom";
+import { flex } from '../Styles/CommonStyle';
 
 const styles = {
-    wrapperStyle: {
+    linkStyle: {
+        textDecoration: 'none', color: 'black'
     }
 }
 
 const ImageListThird = ({
-    items,
-    image,
-    description,
-    rating,
+    items
 }) =>{
     return (
-        <div class="container">
-            <div class="row">
-                {
-                    items.map(item=>(
-                        <div class="col" style={{width: 150}}>
-                            <Link to="/Details/1" style={{ textDecoration: 'none', color: 'black' }}>
-                                <div class="row">
-                                    <img src={item.image} style={{height: '140px', width:  '150px'}} class="rounded" alt="logo" />
-                                </div>
-                                <div class="row" style={{textAlign: 'left', width: '150px'}}>
-                                    <p>
-                                        {item.title}
-                                    </p>
-                                </div>
-                            </Link>
-                        </div>
-                    ))
-                }
+        items.map(item=>(
+            <div style={{...flex, margin: '10px'}}>
+                <Link to="/Details/1" style={styles.linkStyle}>
+                    <img src={item.image} style={{height: '150px', width:  '160px'}} class="rounded" alt="logo" />
+                    <div  style={{width: '160px'}}>
+                        <p>
+                            {item.title}
+                        </p>
+                    </div>
+                </Link>
             </div>
-        </div>
+        ))       
     )
 }
 
