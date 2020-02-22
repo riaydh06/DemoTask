@@ -1,13 +1,18 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import Router from './Route/Router';
-// import store, { history } from './Redux/Store/store';
+import store, { history } from './Redux/Store/Store';
 import routes from './Route'
 
 function App() {
   return (
-    <Router
-      routes={routes}
-    /> 
+     
+    <Provider store={store}>
+      <Router
+          history={history}
+          routes={routes}
+      /> 
+    </Provider>
   );
 }
 

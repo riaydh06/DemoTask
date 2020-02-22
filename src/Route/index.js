@@ -13,13 +13,7 @@ const routes = [
         path:'/Details/:id',
         component: DetailsPage,
         exact: true
-    },
-    // {
-    //     name:'details',
-    //     path:'/details/:id/',
-    //     component: Details,
-    //     exact: true
-    // }
+    }
 ]
 
 function routePath(name, args = null) {

@@ -1,0 +1,12 @@
+export const HOTEL_LIST_REQUEST = 'hotel_list_request';
+export const HOTEL_LIST_SUCCESS = 'hotel_list_success';
+export const HOTEL_LIST_FAILED = 'hotel_list_failed';
+export const SEARCH_REQUEST = 'search_request';
+export const SEARCH_SUCCESS = 'search_success';
+export const SEARCH_FAILED = 'search_failed';
+export const DETAILS_REQUEST = 'details_request';
+export const DETAILS_SUCCESS = 'details_success';
+export const DETAILS_FAILED = 'details_failed';
+export const RESERVATION_REQUEST = 'reservation_request';
+export const RESERVATION_SUCCESS = 'reservation_success';
+export const RESERVATION_FAILED = 'reservation_failed';

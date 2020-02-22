@@ -1,7 +1,14 @@
 import React from 'react';
+import { colors } from '../../Styles/BaseStyle';
+import { flex, mb5, mb0 } from '../../Styles/CommonStyle';
 
 const styles = {
     wrapperStyle: {
+        ...flex,
+        ...mb5,
+        justifyContent: 'space-between',
+        width: '100%',
+        borderBottom: `1px solid ${colors.colorGray}`,
     }
 }
 
@@ -11,17 +18,9 @@ const DetailInfo = ({
     bold
 }) =>{
     return (
-        <div class="row"  style={{width: '100%'}}>
-            <div class="col-6" style={{textAlign: 'left'}}>
-                <p style={{fontWeight: bold ?'bold': 'normal'}}>
-                    {title}
-                </p>
-            </div>
-            <div class="col-6" style={{textAlign: 'right'}}>
-                <p>
-                    {subtitle}
-                </p>
-            </div>
+        <div style={styles.wrapperStyle}>
+            <p style={{fontWeight: bold ?'bold': 'normal', ...mb5}}>{title} </p>
+            <p style={mb5}>{subtitle}</p>
         </div>
 
     )

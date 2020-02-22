@@ -48,7 +48,7 @@ class InputDateRange extends React.Component {
   };
 
   render() {
-    const {title, value, placeholder,fontColor, fontSize, fontFamily, fontWeight, required, borderColor} = this.props;
+    const {title, value, placeholder,fontColor, fontSize, fontFamily, fontWeight, required, borderColor, borderWidth} = this.props;
     return (
       <div style={styles.wrapper}>
         {
@@ -64,7 +64,7 @@ class InputDateRange extends React.Component {
               fontFamily: fontFamily,
               fontWeight: fontWeight||weights.fw100,
               fontSize: fontSize||fonts.fs14,
-              border: `3px solid ${borderColor||colors.colorYellow}`,
+              border: `${borderWidth||3}px solid ${borderColor||colors.colorYellow}`,
             }}
             value={value ? value.start.format("DD-MMM-YYYY") +" - "+ value.end.format("DD-MMM-YYYY"): ''}
             placeholder={placeholder}

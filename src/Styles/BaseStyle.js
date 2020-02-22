@@ -6,7 +6,7 @@ const baseColors = {
     colorBlue: '#007AFF',
     colorSuccess: '#52C41A',
     colorFailed: '#E46353',
-    colorGray: '#e7e7e7',
+    colorGray: '#E7E7E7',
     colorGray2: '#FBFBFB',
     colorGray3:'#D2D2D2',
     colorGray4:'#F0F0F0',

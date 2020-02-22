@@ -32,7 +32,6 @@ const styles = {
 
 const InputFilter = ({
     title,
-    placeholder, 
     type,
     fontColor, 
     fontSize, 
@@ -40,11 +39,11 @@ const InputFilter = ({
     fontWeight,
     icon, 
     required, 
-    value, 
     onChange,
     maxLength, 
     border,
-    borderColor
+    borderColor,
+    borderWidth
 }) => {
     const [show, setShow] = useState(false);
     const [adult, setAdult] = useState(1);
@@ -66,7 +65,7 @@ const InputFilter = ({
                     fontFamily: fontFamily,
                     fontWeight: fontWeight|| weights.fw100,
                     fontSize: fontSize||fonts.fs14,
-                    border: border? `3px solid ${borderColor ||colors.colorYellow}` : 'none',
+                    border: border? `${borderWidth||3}px solid ${borderColor ||colors.colorYellow}` : 'none',
                     backgroundPosition: `${border? '10px': '0px'} center`,
                     padding: border ? `0 15px 0 ${icon? '35px': '15px'}` : '0 15px 0 25px' ,
                 }}
