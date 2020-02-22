@@ -1,10 +1,8 @@
 import React from 'react';
-import logo from '../logo.svg';
-import StarRatings from 'react-star-ratings';
 import {
     Link
   } from "react-router-dom";
-import { flex } from '../Styles/CommonStyle';
+import { flex } from '../../Styles/CommonStyle';
 
 const styles = {
     linkStyle: {

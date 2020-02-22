@@ -10,6 +10,22 @@ export const column={
     flexDirection: 'column'
 }
 
+/* margin top */
+export const mt5 = {
+    marginTop: '5px'
+}
+export const mt10={
+    marginTop: '10px'
+}
+export const mt15={
+    marginTop: '15px'
+}
+export const mt20={
+    marginTop: '20px'
+}
+export const mt40={
+    marginTop: '40px'
+}
 /* margin bottom  */
 export const mb0 ={
     marginBottom: 0

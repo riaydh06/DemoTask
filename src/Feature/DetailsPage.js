@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Header, Details, DetailInfo } from '../Components';
+import { Header, Details, DetailInfo, Filter } from '../Components';
 import data from '../api.json'
-import logo from '../logo.svg';
+import assets from '../Assets';
+import { mb40 } from '../Styles/CommonStyle';
 
 const styles = {
     boxWrapper: {
@@ -24,7 +25,10 @@ class LandingPage extends Component {
     const {search} = this.state;
     return (
         <div class="container">
-            <Header title="Resorts" subtitle="Treat yourself! your dream resort stayis just few clicks aways" />
+            <div class="row" style={mb40}>
+                <Header title="Resorts" subtitle="Treat yourself! your dream resort stayis just few clicks aways" />
+                <Filter onChange={(value)=> console.log(value)} />
+            </div>
             <div class="row">
                 <h3 style={{fontWeight: 'bold', color: 'blue'}}>
                     Hotel Alborada ocean Club
@@ -54,28 +58,28 @@ class LandingPage extends Component {
                         <Details 
                             title="Privet room in flat"
                             subtitle="2 guest 1 bedroom 1 bed 1 shared bathroom"
-                            image={logo}
+                            image={assets.Logo}
                         />
                     </div>
                     <div class="row">
                         <Details 
                             title="Self Check-in"
                             subtitle="Check yourself in with the lockbox"
-                            image={logo}
+                            image={assets.Logo}
                         />
                     </div>
                     <div class="row">
                         <Details 
                             title="Breakfast"
                             subtitle="this is one of the few places that has this feature"
-                            image={logo}
+                            image={assets.Logo}
                         />
                     </div>
                     <div class="row">
                         <Details 
                             title="Great communication"
                             subtitle="100% of recent guests rated shimmy 5-star in communication"
-                            image={logo}
+                            image={assets.Logo}
                         />
                     </div>
                 </div>

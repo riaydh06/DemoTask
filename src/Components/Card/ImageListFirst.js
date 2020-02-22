@@ -1,17 +1,15 @@
 import React from 'react';
-import logo from '../logo.svg';
 import StarRatings from 'react-star-ratings';
-import {
-    Link
-  } from "react-router-dom";
-import { flex, column, mr10, mb5 } from '../Styles/CommonStyle';
+import { Link} from "react-router-dom";
+import { flex, column, mr10, mb5 } from '../../Styles/CommonStyle';
 
 const styles = {
     linkStyle: {
         textDecoration: 'none', color: 'black'
     },
     imageStyle: {
-        height: '240px'
+        height: '240px',
+        width: '330px'
     }
 }
 
@@ -32,7 +30,7 @@ const ImageListFirst = ({
                         starDimension="16px"
                         starSpacing="2px"
                     />
-                    <div style={{width: '350px'}}>
+                    <div style={{width: '330px'}}>
                         <p>{item.description}</p>
                     </div>
                     <div style={flex}>
