@@ -17,6 +17,11 @@ const initialState = {
         failed: false,
         data: {}
     },
+    addHotel:{
+        loading: false,
+        success: false,
+        failed: false,
+    },
     reservation: {
         loading: false,
         success: false,

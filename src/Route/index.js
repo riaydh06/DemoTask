@@ -1,5 +1,6 @@
 import LandingPage from '../Feature/LandingPage';
 import DetailsPage from '../Feature/DetailsPage';
+import AddData from '../Feature/AddData';
 
 const routes = [
     {
@@ -12,6 +13,12 @@ const routes = [
         name:'DetailsPage',
         path:'/Details/:id',
         component: DetailsPage,
+        exact: true
+    },
+    {
+        name:'AddData',
+        path:'/AddData',
+        component: AddData,
         exact: true
     }
 ]

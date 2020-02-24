@@ -11,7 +11,10 @@ import {
   DETAILS_FAILED,
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
-  SEARCH_FAILED
+  SEARCH_FAILED,
+  ADD_REQUEST,
+  ADD_SUCCESS,
+  ADD_FAILED
 } from '../Constants/ActionType';
 
 // Get Hotel List
@@ -101,6 +104,36 @@ export const fetchHotelDetails = (id) => (dispatch) => {
       dispatch(hotelDetailsFailed(e));
     });
 };
+
+// Add Hotel List
+export const hotelAddRequest = () => ({
+  type: ADD_REQUEST
+});
+
+export const hotelAddSuccess = response => ({
+  type: ADD_SUCCESS,
+  response
+});
+
+export const hotelAddFailed = error => ({
+  type: ADD_FAILED,
+  error
+});
+
+export const fetchHotelAdd = (data) => (dispatch) => {
+  dispatch(hotelAddRequest());
+  axiosInstance
+    .post('/api/hotellist/', data)
+    .then((res) => {
+      console.log(res)
+      dispatch(hotelAddSuccess(res));
+    })
+    .catch((e) => {
+      console.log(e.response)
+      dispatch(hotelAddFailed(e));
+    });
+};
+
 
 
 // Reservation

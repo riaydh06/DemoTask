@@ -10,7 +10,10 @@ import {
   DETAILS_FAILED,
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
-  SEARCH_FAILED
+  SEARCH_FAILED,
+  ADD_REQUEST,
+  ADD_SUCCESS,
+  ADD_FAILED
 } from '../Constants/ActionType';
 import initialState from '../Constants/InitialState';
 
@@ -95,7 +98,6 @@ export default (state = initialState, action) => {
         }
     };
     case DETAILS_SUCCESS:
-      console.log(action)
       return {
         ...state,
         details:{
@@ -113,6 +115,35 @@ export default (state = initialState, action) => {
           success: false,
           failed: true,
           data: {}
+        }
+      };
+
+    // Add Hotel List
+    case ADD_REQUEST:
+    return {
+        ...state,
+        addHotel:{
+          loading: true,
+          success: false,
+          failed: false,
+        }
+    };
+    case ADD_SUCCESS:
+      return {
+        ...state,
+        addHotel:{
+          loading: false,
+          success: true,
+          failed: false,
+        }
+      };
+    case ADD_FAILED:
+      return {
+        ...state,
+        addHotel:{
+          loading: false,
+          success: false,
+          failed: true,
         }
       };
 
