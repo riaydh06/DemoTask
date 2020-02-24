@@ -8,7 +8,10 @@ import {
   HOTEL_LIST_FAILED,
   DETAILS_REQUEST,
   DETAILS_SUCCESS,
-  DETAILS_FAILED
+  DETAILS_FAILED,
+  SEARCH_REQUEST,
+  SEARCH_SUCCESS,
+  SEARCH_FAILED
 } from '../Constants/ActionType';
 
 // Get Hotel List
@@ -40,6 +43,36 @@ export const fetchHotelList = () => (dispatch) => {
     });
 };
 
+// Get Hotel Search List
+export const hotelSearchListRequest = () => ({
+  type: SEARCH_REQUEST
+});
+
+export const hotelSearchListSuccess = response => ({
+  type: SEARCH_SUCCESS,
+  response
+});
+
+export const hotelSearchListFailed = error => ({
+  type: SEARCH_FAILED,
+  error
+});
+
+export const fetchHotelSearchList = (data) => (dispatch) => {
+  dispatch(hotelSearchListRequest());
+  console.log(data)
+  axiosInstance
+    .post('/api/search/', data)
+    .then((res) => {
+      console.log(res)
+      dispatch(hotelSearchListSuccess(res));
+    })
+    .catch((e) => {
+      console.log(e.response)
+      dispatch(hotelSearchListFailed(e));
+    });
+};
+
 // Get Hotel List
 export const hotelDetailsRequest = () => ({
   type: DETAILS_REQUEST
@@ -56,7 +89,7 @@ export const hotelDetailsFailed = error => ({
 });
 
 export const fetchHotelDetails = (id) => (dispatch) => {
-  dispatch(hotelDetailsRequest(id));
+  dispatch(hotelDetailsRequest());
   axiosInstance
     .get('/api/hotellist/' + id + '/')
     .then((res) => {
