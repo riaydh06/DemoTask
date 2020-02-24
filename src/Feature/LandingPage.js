@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Header, ImageListFirst, ImageListSecond, ImageListThird, ImageListForth, InputText, InputDateRange, InputNumber, InputFilter, Filter } from '../Components';
 import data from '../api.json'
 import { mb50, mb40, flex } from '../Styles/CommonStyle';
+import { connect } from "react-redux";
+import { fetchHotelList } from '../Redux/Actions/LandingAction';
 
 const styles = {
     wrapper: {
@@ -21,9 +23,13 @@ class LandingPage extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.handleFetchHotelList()
+  }
+
   render() {
-    console.log(data)
-    const {search, date, guests} = this.state;
+    const {hotelList} = this.props;
+    console.log(hotelList)
     return (
         <div class="container">
             <div class="row" style={mb50}>
@@ -38,7 +44,7 @@ class LandingPage extends Component {
             </div>
             <div class="row" style={mb40}>
                 <ImageListFirst
-                    items={data.data1}
+                    items={hotelList.data}
                 />
             </div>
             <div class="row">
@@ -48,7 +54,7 @@ class LandingPage extends Component {
             </div>
              <div class="row" style={mb50}>
                 <ImageListSecond
-                    items={data.data2}
+                    items={hotelList.data}
                 />
             </div>
             <div class="row">
@@ -58,12 +64,12 @@ class LandingPage extends Component {
             </div>
             <div class="row" style={mb50}>
                 <ImageListThird
-                    items={data.data2}
+                    items={hotelList.data}
                 />
             </div>
             <div class="row w-100" style={mb50}>
                 <ImageListForth
-                    items={data.data2}
+                    items={hotelList.data}
                 />
             </div>
         </div>
@@ -71,5 +77,21 @@ class LandingPage extends Component {
   }
 }
 
-  
- export default LandingPage;
+
+const mapDispatchToProps = dispatch => ({
+    handleFetchHotelList: () => {
+        dispatch(fetchHotelList());
+    },
+});
+
+function mapStateToProps(state) {
+    console.log(state)
+  return {
+    hotelList: state.data.hotelList
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LandingPage);

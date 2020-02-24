@@ -72,6 +72,7 @@ const InputFilter = ({
                 maxLength={maxLength || "50"}
                 value={`${adult} ${adult>1 ? 'adult': 'adults'} . ${children} Children . ${room} Room`}
                 // onChange={(e)=> onChange(e.target.value)}
+                onChange={()=>{}}
                 placeholder={`${adult} ${adult>1 ? 'adult': 'adults'} . ${children} Children . ${room} Room`}
                 required={required}
                 type={type||'text'}

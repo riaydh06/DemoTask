@@ -15,7 +15,7 @@ const ImageListSecond = ({
     return (
         items.map((item, index)=>(
             <div style={{...flex, ...column, margin: '5px'}} key={index}>
-                <Link to="/Details/1" style={styles.linkStyle}>
+                <Link to={`/Details/${item._id}`} style={styles.linkStyle}>
                     <img src={item.image} style={{height: '240px', width: 160}} class="rounded" alt="logo" />
                     <div style={{width: 160}}>
                         <p>{`${item.price} ${item.title}`}</p>
@@ -24,7 +24,7 @@ const ImageListSecond = ({
                         <StarRatings
                             starRatedColor="red"
                             starEmptyColor="white"
-                            rating={item.rating}
+                            rating={parseFloat(item.rating)}
                             starDimension="16px"
                             starSpacing="2px"
                         />

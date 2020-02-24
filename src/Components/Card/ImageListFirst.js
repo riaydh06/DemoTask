@@ -19,14 +19,14 @@ const ImageListFirst = ({
     return (
         items.map((item, index)=>(
             <div style={{...flex, margin: '10px'}} key={index}>
-                <Link to="/Details/1" style={styles.linkStyle}>
+                <Link to={`/Details/${item._id}`} style={styles.linkStyle}>
                     <div>
                         <img src={item.image} style={styles.imageStyle} class="rounded" alt="logo" />
                     </div>
                     <StarRatings
                         starRatedColor="red"
                         starEmptyColor="white"
-                        rating={item.rating}
+                        rating={parseFloat(item.rating)}
                         starDimension="16px"
                         starSpacing="2px"
                     />

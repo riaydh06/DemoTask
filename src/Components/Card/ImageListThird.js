@@ -14,9 +14,9 @@ const ImageListThird = ({
     items
 }) =>{
     return (
-        items.map(item=>(
-            <div style={{...flex, margin: '10px'}}>
-                <Link to="/Details/1" style={styles.linkStyle}>
+        items.map((item, index)=>(
+            <div style={{...flex, margin: '10px'}} key={index}>
+                <Link to={`/Details/${item._id}`} style={styles.linkStyle}>
                     <img src={item.image} style={{height: '150px', width:  '160px'}} class="rounded" alt="logo" />
                     <div  style={{width: '160px'}}>
                         <p>

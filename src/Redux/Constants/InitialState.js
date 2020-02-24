@@ -3,7 +3,7 @@ const initialState = {
         loading: false,
         success: false,
         failed: false,
-        data: {}
+        data: []
     },
     searchList:{
         loading: false,
@@ -11,7 +11,7 @@ const initialState = {
         failed: false,
         data: []
     },
-    detils:{
+    details:{
         loading: false,
         success: false,
         failed: false,

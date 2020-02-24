@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const URLS = {
-  backEndUrl: process.env.REACT_APP_URL,
+  backEndUrl: 'http://localhost:4000'
 };
 
 const ACTIVE_URLS = URLS;

@@ -5,7 +5,7 @@ import landingReducer from './LandingReducer'
 const createRootReducers = history =>
   combineReducers({
     router: connectRouter(history),
-    landingReducer
+    data: landingReducer
   });
   
 export default createRootReducers;

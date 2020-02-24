@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { Header, Details, DetailInfo, Filter, InputDateRange, InputFilter } from '../Components';
 import data from '../api.json'
 import assets from '../Assets';
-import { mb40, mr5, flex, column, mb5, mb10 } from '../Styles/CommonStyle';
+import { mb40, mr5, flex, column, mb10 } from '../Styles/CommonStyle';
 import { colors } from '../Styles/BaseStyle';
+import { fetchHotelDetails } from '../Redux/Actions/LandingAction';
 
 const styles = {
     boxWrapper: {
@@ -16,7 +18,7 @@ const styles = {
     }
 }
 
-class LandingPage extends Component {
+class DetailsPage extends Component {
 
   constructor(props) {
     super(props)
@@ -27,9 +29,15 @@ class LandingPage extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.handleFetchHotelDetails(this.props.match.params.id)
+  }
+
   render() {
-    console.log(data)
     const {date,guest} = this.state;
+    const {image, rating, title, description, price, type, comments, country} = this.props.details.data;
+    console.log(this.props.match.params.id)
+    console.log(this.props.details)
     return (
         <div class="container">
             <div class="row" style={mb40}>
@@ -38,26 +46,26 @@ class LandingPage extends Component {
             </div>
             <div class="row">
                 <h3 style={{fontWeight: 'bold', color: 'blue'}}>
-                    Hotel Alborada ocean Club
+                    {title}
                 </h3>
             </div>
             <div class="row">
                 <p>
-                    Hotel Alborada ocean Club
+                    {description}
                 </p>
             </div>
             <div class="row" style={mb40}>
-                <img src="https://a0.muscache.com/4ea/air/v2/pictures/4973ce42-d15c-4f6d-9cc3-dd0d52b60261.jpg" style={{height: '500px', width:  '100%'}} class="rounded" alt="logo" />
+                <img src={image} style={{height: '500px', width:  '100%'}} class="rounded" alt="logo" />
             </div>
             <div class="row" style={mb40}>
                 <div class="col-sm-8 col-md-8">
                     <div class="row">
                         <h3 style={{fontWeight: 'bold'}}>
-                            Hotel Alborada ocean Club
+                            {title}
                         </h3>
                     </div>
                     <div class="row">
-                        <p> Greater London</p>
+                        <p>{country}</p>
                     </div>
                     <div class="row">
                         <Details 
@@ -101,7 +109,7 @@ class LandingPage extends Component {
                 <div class="col-sm-4 col-md-4">
                     <div style={styles.boxWrapper}>
                         <div style={flex}>
-                            <h4 style={{fontWeight: 'bold',...mr5}}>€24</h4>
+                            <h4 style={{fontWeight: 'bold',...mr5}}>{price}</h4>
                             <p>per night</p>
                         </div>
                         <div style={mb10}>
@@ -126,10 +134,10 @@ class LandingPage extends Component {
                                 borderWidth={1}
                             />
                         </div>
-                        <DetailInfo title="€24 × 1 night" subtitle="€24"/>
-                        <DetailInfo title="Cleaning fee" subtitle="€24"/>
-                        <DetailInfo title="Service fee" subtitle="€24"/>
-                        <DetailInfo title="Total" subtitle="€24" bold/>
+                        <DetailInfo title="£24 × 1 night" subtitle="£24"/>
+                        <DetailInfo title="Cleaning fee" subtitle="£24"/>
+                        <DetailInfo title="Service fee" subtitle="£24"/>
+                        <DetailInfo title="Total" subtitle="£24" bold/>
                         <button type="button" class="btn btn-danger btn-block">Reserve</button>
                     </div>
                 </div>
@@ -139,5 +147,20 @@ class LandingPage extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+    handleFetchHotelDetails: (data) => {
+        dispatch(fetchHotelDetails(data));
+    },
+  });
   
- export default LandingPage;
+  function mapStateToProps(state) {
+      console.log(state)
+    return {
+        details: state.data.details
+    };
+  }
+  
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(DetailsPage);

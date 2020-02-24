@@ -14,7 +14,7 @@ const ImageListForth = ({
 }) =>{
     return (
         items.map((item, index)=>(
-            <Link class="w-100" to="/Details/1" style={{...styles.linkStyle, ...mb20}} key={index}>
+            <Link class="w-100" to={`/Details/${item._id}`} style={{...styles.linkStyle, ...mb20}} key={index}>
                 <div class="row">
                     <div class="col-sm-4">
                         <img src={item.image} style={{height: '240px'}} class="rounded" alt="logo" />
@@ -27,7 +27,7 @@ const ImageListForth = ({
                                     <StarRatings
                                         starRatedColor="red"
                                         starEmptyColor="white"
-                                        rating={item.rating}
+                                        rating={parseFloat(item.rating)}
                                         starDimension="16px"
                                         starSpacing="2px"
                                     />
